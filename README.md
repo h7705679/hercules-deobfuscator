@@ -1,1 +1,1 @@
-deobfuscated under 1 hour lol
+deobfhercules does not support 2.1 version of hercules support will be added soon
