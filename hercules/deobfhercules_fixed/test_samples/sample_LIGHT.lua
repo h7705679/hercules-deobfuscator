@@ -1,0 +1,13 @@
+-- Lua 5.3+ / Luau compatibility polyfills
+if not math.ldexp then math.ldexp = function(x, n) return x * 2 ^ n end end
+if not math.frexp then math.frexp = function(x)
+    if x == 0 then return 0, 0 end
+    local exp = math.floor(math.log(math.abs(x)) / math.log(2)) + 1
+    local mantissa = x / 2 ^ exp
+    return mantissa, exp
+end end
+if not loadstring and load then loadstring = load end
+if not loadstring then loadstring = function(s) return load(s) end end
+
+--[Obfuscated by Hercules v2.0.0 | hercules-obfuscator.xyz/discord | hercules-obfuscator.xyz/source]
+local aLrZNFZzv,bkUdBYJAnfFr,uftApFaL,ypJwqesIzU,PehspsOh,ohMxNcWUzp,HZMzJFNnd,RjzXNJuhT;aLrZNFZzv=ipairs;bkUdBYJAnfFr=pairs;uftApFaL=print;ypJwqesIzU=math.floor;PehspsOh=string.byte;ohMxNcWUzp=string.format;HZMzJFNnd=string.sub;RjzXNJuhT=table.concat;local function cojDwawqDb(text) local MmXHvphT=0x811c9dc5;for EHyvjIlF=1,#text do local uPykoUzcpS=string.byte(text,EHyvjIlF);MmXHvphT=MmXHvphT~uPykoUzcpS;MmXHvphT=(MmXHvphT*0x01000193)%0x100000000 end return MmXHvphT end local aMapjoAFBrqK="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";local function CaJskvJtYS(data) local VleWDYYoc={};local WBuZAAKcKXKQ=#data;local EHyvjIlF=1;while EHyvjIlF<=WBuZAAKcKXKQ do local sabbMDzMcA=string.byte(data,EHyvjIlF)or 0;local UsLdFQnQ=string.byte(data,EHyvjIlF+1)or 0;local YoIZJkNR=string.byte(data,EHyvjIlF+2)or 0;local LQzEOqgVEa=sabbMDzMcA*65536+UsLdFQnQ*256+YoIZJkNR;local WfpljUAGGPN=math.floor(LQzEOqgVEa/262144)%64;local WSPWqjWly=math.floor(LQzEOqgVEa/4096)%64;local aWErudgzXE=math.floor(LQzEOqgVEa/64)%64;local caGhKOUF=LQzEOqgVEa%64;VleWDYYoc[#VleWDYYoc+1]=string.sub(aMapjoAFBrqK,WfpljUAGGPN+1,WfpljUAGGPN+1);VleWDYYoc[#VleWDYYoc+1]=string.sub(aMapjoAFBrqK,WSPWqjWly+1,WSPWqjWly+1);if EHyvjIlF+1<=WBuZAAKcKXKQ then VleWDYYoc[#VleWDYYoc+1]=string.sub(aMapjoAFBrqK,aWErudgzXE+1,aWErudgzXE+1) else VleWDYYoc[#VleWDYYoc+1]="=" end if EHyvjIlF+2<=WBuZAAKcKXKQ then VleWDYYoc[#VleWDYYoc+1]=string.sub(aMapjoAFBrqK,caGhKOUF+1,caGhKOUF+1) else VleWDYYoc[#VleWDYYoc+1]="=" end EHyvjIlF=EHyvjIlF+3 end return table.concat(VleWDYYoc) end local RjzPLpblnMFf="Hercules-Test-2026";local function UWHDnyjTXP(payload) return string.format("%08x",cojDwawqDb(payload..RjzPLpblnMFf)) end local MVZhFlkna={"hello","the quick brown fox","Hercules was here",};uftApFaL("=== Hercules Deobfuscation Challenge ===");uftApFaL("Target: recover fnv1a_32, base64_encode, checksum, SECRET_KEY");uftApFaL("");for _,sample in aLrZNFZzv(MVZhFlkna)do local nKjbOprIQS=CaJskvJtYS(sample);local HBzRPYjbok=UWHDnyjTXP(sample);uftApFaL(string.format("input    : %q",sample));uftApFaL(string.format("base64   : %s",nKjbOprIQS));uftApFaL(string.format("checksum : %s",HBzRPYjbok));uftApFaL("") end uftApFaL("done.")
