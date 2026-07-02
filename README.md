@@ -1,1 +1,1 @@
-deobfhercules does not support 2.1 version of hercules support will be added soon
+support versions from 1.6.X up to 2.0.0
